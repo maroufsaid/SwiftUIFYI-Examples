@@ -11,7 +11,8 @@ import SwiftUI
 struct SwiftUIFYIApp: App {
     var body: some Scene {
         WindowGroup {
-            PopoverTipDemoView()
+            ConditionalTipDemoView()
+            //PopoverTipDemoView()
             //ContentView()
             //NumberTransitionView()
             //Gradients()
