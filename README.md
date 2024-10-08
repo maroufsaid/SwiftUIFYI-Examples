@@ -1,2 +1,1 @@
-# SwiftUIFYI
- SwiftUI FYI Examples
+# SwiftUI FYI Examples
