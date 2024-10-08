@@ -11,7 +11,8 @@ import SwiftUI
 struct SwiftUIFYIApp: App {
     var body: some Scene {
         WindowGroup {
-            CoffeeTrackerView()
+            CustomTabbarDemoView()
+            //CoffeeTrackerView()
             //ConditionalTipDemoView()
             //PopoverTipDemoView()
             //ContentView()
