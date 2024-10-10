@@ -9,15 +9,16 @@ import SwiftUI
 
 @main
 struct SwiftUIFYIApp: App {
-    var body: some Scene {
-        WindowGroup {
-            CustomTabbarDemoView()
-            //CoffeeTrackerView()
-            //ConditionalTipDemoView()
-            //PopoverTipDemoView()
-            //ContentView()
-            //NumberTransitionView()
-            //Gradients()
-        }
+  var body: some Scene {
+    WindowGroup {
+      TwitterButtonDemoView()
+      //CustomTabbarDemoView()
+      //CoffeeTrackerView()
+      //ConditionalTipDemoView()
+      //PopoverTipDemoView()
+      //ContentView()
+      //NumberTransitionView()
+      //Gradients()
     }
+  }
 }
