@@ -11,7 +11,8 @@ import SwiftUI
 struct SwiftUIFYIApp: App {
   var body: some Scene {
     WindowGroup {
-      ChartExample()
+      TimerView()
+      //ChartExample()
       //TwitterButtonDemoView()
       //CustomTabbarDemoView()
       //CoffeeTrackerView()

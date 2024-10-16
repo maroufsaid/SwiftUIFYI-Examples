@@ -51,6 +51,7 @@ struct CircleProgressView: View {
     
     var progress: Double
     var lineWidth: CGFloat
+    var color: Color = .orange
     
     var body: some View {
         
@@ -63,7 +64,7 @@ struct CircleProgressView: View {
             Circle()
                 .trim(from: 0, to: min(progress, 1.0))
                 .stroke(
-                    .green.gradient,
+                    color.gradient,
                     style: StrokeStyle(
                         lineWidth: lineWidth,
                         lineCap: .round
