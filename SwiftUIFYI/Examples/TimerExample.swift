@@ -6,17 +6,15 @@
 //
 
 import SwiftUI
+import Combine
 
 struct TimerView: View {
     
-    @State var durationSeconds: Duration = .seconds(1 * 60)
+    let durationSeconds: Duration
     @State private var elapsedSeconds: Duration = .seconds(0)
-    
-    @State private var timer: Timer?
-    
-    private var progress: Double {
-        (durationSeconds - elapsedSeconds) / durationSeconds
-    }
+    // For better interactivity precision
+    @State private var elapsedMilliseconds: Int = 0
+    @State private var cancellable: Cancellable?
     
     var body: some View {
         VStack(spacing: 24) {
@@ -36,14 +34,12 @@ struct TimerView: View {
                 .font(.system(size: 50, weight: .medium))
                 .foregroundStyle(.white.opacity(0.8))
                 .contentTransition(.numericText())
-                    .monospaced()
-                
+                .monospaced()
             }
             
-            let isTimerValid = timer?.isValid ?? false
             HStack {
                 // Cancel button
-                if isTimerValid || elapsedSeconds > .seconds(0) {
+                if shouldShowCancelButton() {
                     Button {
                         stopAndResetTimer()
                     } label: {
@@ -77,31 +73,72 @@ struct TimerView: View {
     // -MARK: Timer Controls
     
     private func toggleTimer() {
-        let isTimerValid = timer?.isValid ?? false
         isTimerValid ? pauseTimer() : startTimer()
     }
-    
+        
+    // A few gotchas!
+    // 1- Precision when toggling the timer is tricky. Made the timer fire every
+    // 0.01 seconds to acheive higehr precision.
+    // 2- Tracking milliseconds to avoid updating the UI every 0.01 seconds, and
+    // still acheiving better precision.
+    // 3- Stopping the timer at completion happens in the animation completion
+    // block, to ensure the final visuals take place.
     private func startTimer() {
-        timer = Timer.scheduledTimer(
-            withTimeInterval: 1, repeats: true) { timer in
-                if elapsedSeconds == durationSeconds {
-                    stopAndResetTimer()
-                }
-                else {
+        
+        cancellable = Timer
+            .publish(every: 0.01, on: .main, in: .common)
+            .autoconnect()
+            .sink { _ in
+                if newSecondPassed {
                     withAnimation(.easeInOut) {
-                        elapsedSeconds += .seconds(1)
+                        if elapsedSeconds < durationSeconds {
+                            elapsedSeconds += .seconds(1.0)
+                        }
+                    } completion: {
+                        // inside completion to ensure the final animation
+                        // finishes. Bettr UX, but less clean code..
+                        if shouldStopTimer {
+                            stopAndResetTimer()
+                        }
                     }
+                }
+            
+                if !shouldStopTimer {
+                    elapsedMilliseconds += 10
                 }
             }
     }
     
+    private var progress: Double {
+        // Using milliseconds for smoother animation
+        let elapsed: Duration = .milliseconds(elapsedMilliseconds)
+        return (durationSeconds - elapsed) / durationSeconds
+    }
+    
+    private var isTimerValid: Bool {
+        cancellable != nil
+    }
+
+    private func shouldShowCancelButton() -> Bool {
+        return isTimerValid || elapsedSeconds > .seconds(0)
+    }
+    
+    private var shouldStopTimer: Bool {
+        .milliseconds(elapsedMilliseconds) == durationSeconds
+    }
+    
+    private var newSecondPassed: Bool {
+        elapsedMilliseconds > 0 && elapsedMilliseconds % 1000 == 0
+    }
+    
     private func pauseTimer() {
-        timer?.invalidate()
-        timer = nil
+        cancellable?.cancel()
+        cancellable = nil
     }
     
     private func stopAndResetTimer() {
         pauseTimer()
+        elapsedMilliseconds = 0
         withAnimation(.easeInOut) {
             elapsedSeconds = .seconds(0)
         }
@@ -110,5 +147,5 @@ struct TimerView: View {
 }
 
 #Preview {
-    TimerView()
+    TimerView(durationSeconds: .seconds(120))
 }

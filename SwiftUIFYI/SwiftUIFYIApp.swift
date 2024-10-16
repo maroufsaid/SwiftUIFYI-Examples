@@ -11,7 +11,7 @@ import SwiftUI
 struct SwiftUIFYIApp: App {
   var body: some Scene {
     WindowGroup {
-      TimerView()
+        TimerView(durationSeconds: .seconds(1 * 60))
       //ChartExample()
       //TwitterButtonDemoView()
       //CustomTabbarDemoView()
