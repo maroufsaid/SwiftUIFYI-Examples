@@ -9,18 +9,18 @@ import SwiftUI
 
 @main
 struct SwiftUIFYIApp: App {
-  var body: some Scene {
-    WindowGroup {
-        TimerView(durationSeconds: .seconds(1 * 60))
-      //ChartExample()
-      //TwitterButtonDemoView()
-      //CustomTabbarDemoView()
-      //CoffeeTrackerView()
-      //ConditionalTipDemoView()
-      //PopoverTipDemoView()
-      //ContentView()
-      //NumberTransitionView()
-      //Gradients()
+    var body: some Scene {
+        WindowGroup {
+            TimerView(durationSeconds: .seconds(13 * 60))
+            //ChartExample()
+            //TwitterButtonDemoView()
+            //CustomTabbarDemoView()
+            //CoffeeTrackerView()
+            //ConditionalTipDemoView()
+            //PopoverTipDemoView()
+            //ContentView()
+            //NumberTransitionView()
+            //Gradients()
+        }
     }
-  }
 }
