@@ -35,6 +35,7 @@ struct SaveToFilesView: View {
             
             let url = Image.create(
                 identifier: "uniqueImageName",
+                // image inside Assets.xcassets
                 image: UIImage(named: "background2")!,
                 options: nil
             )
