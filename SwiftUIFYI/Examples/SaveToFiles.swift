@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// inspired by https://stackoverflow.com/questions/39103095/unnotificationattachment-with-uiimage-or-remote-url
+
 extension Image {
     static func create(identifier: String, image: UIImage, options: [NSObject : AnyObject]?) -> URL? {
         let fileManager = FileManager.default
