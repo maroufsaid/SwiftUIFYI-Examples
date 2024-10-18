@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// Disclaimer: Code is for demonstration purposes only.
+
 // inspired by https://stackoverflow.com/questions/39103095/unnotificationattachment-with-uiimage-or-remote-url
 
 extension Image {
