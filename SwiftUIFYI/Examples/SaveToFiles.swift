@@ -8,8 +8,10 @@
 import SwiftUI
 
 // Disclaimer: Code is for demonstration purposes only.
+// Demonstrates how to share a bundled asset on macos (Designed for iPad), specifically Save ti files.
+// Other use cases and devices need to be further tested.
 
-// inspired by https://stackoverflow.com/questions/39103095/unnotificationattachment-with-uiimage-or-remote-url
+// Solution inspired by https://stackoverflow.com/questions/39103095/unnotificationattachment-with-uiimage-or-remote-url
 
 extension Image {
     static func create(identifier: String, image: UIImage, options: [NSObject : AnyObject]?) -> URL? {
