@@ -24,6 +24,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F30290942CC25A0400BF79EA /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		F3D9F5182C9CD45300B8EFFE /* SwiftUIFYI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIFYI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3D9F5282C9CD45500B8EFFE /* SwiftUIFYITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUIFYITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3D9F5322C9CD45500B8EFFE /* SwiftUIFYIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUIFYIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,12 +73,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F30290932CC25A0400BF79EA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F30290942CC25A0400BF79EA /* AVKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F3D9F50F2C9CD45300B8EFFE = {
 			isa = PBXGroup;
 			children = (
 				F3D9F51A2C9CD45300B8EFFE /* SwiftUIFYI */,
 				F3D9F52B2C9CD45500B8EFFE /* SwiftUIFYITests */,
 				F3D9F5352C9CD45500B8EFFE /* SwiftUIFYIUITests */,
+				F30290932CC25A0400BF79EA /* Frameworks */,
 				F3D9F5192C9CD45300B8EFFE /* Products */,
 			);
 			sourceTree = "<group>";

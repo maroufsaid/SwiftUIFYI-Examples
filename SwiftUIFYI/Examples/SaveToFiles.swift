@@ -20,10 +20,10 @@ extension Image {
         let tmpSubFolderURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(tmpSubFolderName, isDirectory: true)
         do {
             try fileManager.createDirectory(at: tmpSubFolderURL, withIntermediateDirectories: true, attributes: nil)
-            let imageFileIdentifier = identifier+".png"
+            let imageFileIdentifier = identifier+".jpg"
             let fileURL = tmpSubFolderURL.appendingPathComponent(imageFileIdentifier)
-            let imageData = UIImage.pngData(image)
-            try imageData()?.write(to: fileURL)
+            let imageData = image.jpegData(compressionQuality: 1.0)
+            try imageData?.write(to: fileURL)
             return fileURL
         } catch {
             print("error " + error.localizedDescription)
@@ -32,6 +32,9 @@ extension Image {
     }
 }
 
+// Run destination: Mac (Designed for iPad)
+// Whole App crahses at first attempt Symbol not found: _OBJC_CLASS_$_AVPlayerView.
+// Works after that!
 struct SaveToFilesView: View {
     
     var body: some View {
@@ -48,7 +51,6 @@ struct SaveToFilesView: View {
             ShareLink(
                 item: url!, message: Text("Hello")
             )
-            
             
         }
     }
