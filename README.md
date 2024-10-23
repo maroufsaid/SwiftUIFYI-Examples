@@ -3,6 +3,9 @@ A collection of SwiftUI examples that demonstrate some basics, and some interres
 
 ## Example Collection
 
+- [Sheet Presentation Detents](https://github.com/maroufsaid/SwiftUIFYI-Examples/blob/5e05c733aba0a0b4c05529cd1200e28124d9c205/SwiftUIFYI/Examples/SheetsExampleView.swift)
+- [Keyboard Dismissal](https://github.com/maroufsaid/SwiftUIFYI-Examples/blob/5e05c733aba0a0b4c05529cd1200e28124d9c205/SwiftUIFYI/Examples/KeyboardDismissView.swift)
+- [Chart Example](https://github.com/maroufsaid/SwiftUIFYI-Examples/blob/5e05c733aba0a0b4c05529cd1200e28124d9c205/SwiftUIFYI/Examples/ChartExample.swift)
 - [Circular Progress View](https://github.com/maroufsaid/SwiftUIFYI-Examples/blob/242577c38618aff2509c59650f8dba4d1c4b82b0/SwiftUIFYI/Examples/CircleProgressView.swift)
 - [Coffee Tracker with Wave Animation](https://github.com/maroufsaid/SwiftUIFYI-Examples/blob/242577c38618aff2509c59650f8dba4d1c4b82b0/SwiftUIFYI/Examples/CoffeeTrackerView.swift)
 - [TipKit: Conditional Tips](https://github.com/maroufsaid/SwiftUIFYI-Examples/blob/242577c38618aff2509c59650f8dba4d1c4b82b0/SwiftUIFYI/Examples/ConditionalTipDemoView.swift)
